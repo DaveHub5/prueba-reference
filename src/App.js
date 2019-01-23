@@ -1,28 +1,15 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Admin, Resource, ListGuesser } from 'react-admin';
+import jsonServerProvider from 'ra-data-json-server';
+import { Prueba } from './prueba';
+import { Formp  } from './formp';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const dataProvider = jsonServerProvider('http://localhost:3001');
+const App = () => <Admin dataProvider={dataProvider}>
+        <Resource name="posts" list={ListGuesser} />
+        <Resource name="comments" list={ListGuesser} /> 
+        <Resource name="prueba" list={Prueba} />
+	<Resource name="formp" list={Formp} />
+	</Admin>
 
 export default App;
