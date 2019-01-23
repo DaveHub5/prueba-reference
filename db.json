@@ -1,0 +1,29 @@
+{
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "typicode", "aux": ["a", "w", "c"] },
+    { "id": 2, "title": "json-server", "author": "typicode", "aux": ["c", "s", "q"] },
+    { "id": 3, "title": "json-server", "author": "typicode", "aux": ["d", "d", "w"] },
+    { "id": 4, "title": "json-server", "author": "typicode", "aux": ["e", "f", "e"] },
+    { "id": 5, "title": "json-server", "author": "typicode", "aux": ["f", "l", "r"] },
+    { "id": 6, "title": "json-server", "author": "typicode", "aux": ["g", "h", "t"] },
+    { "id": 7, "title": "json-server", "author": "typicode", "aux": ["h", "v", "y"] },
+    { "id": 8, "title": "json-server", "author": "typicode", "aux": ["i", "b", "u"] },
+    { "id": 9, "title": "json-server", "author": "typicode", "aux": ["j", "n", "c"] }
+  ],
+  "comments": [
+    { "postId": 1, "id": 1, "body": "asome comment" },
+    { "postId": 2, "id": 2, "body": "sbome comment" },
+    { "postId": 3, "id": 3, "body": "csome comment" },
+    { "postId": 4, "id": 4, "body": "dsome comment" },
+    { "postId": 5, "id": 5, "body": "esome comment" },
+    { "postId": 6, "id": 6, "body": "fsome comment" },
+    { "postId": 7, "id": 7, "body": "gsome comment" },
+    { "postId": 8, "id": 8, "body": "hsome comment" },
+    { "postId": 9, "id": 9, "body": "jsome comment" },
+    { "postId": 9, "id": 10, "body": "ksome comment" },
+    { "postId": 9, "id": 11, "body": "lsome comment" },
+    { "postId": 9, "id": 12, "body": "ñsome comment" }
+  ],
+  "profile": { "name": "typicode" }
+}
+
