@@ -104,7 +104,6 @@ export const Aux = props => (
     <AutocompleteInput optionText="id"/>
 </ReferenceInput>
   <PruebaSelect posts="posts" comments="comments" selected={1}/>
-<TextField>
 
 </SimpleForm>
 );
