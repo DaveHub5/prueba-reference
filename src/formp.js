@@ -20,8 +20,8 @@ AutocompleteInput, required, FormDataConsumer, TextInput
     return (
       <div>
         <h1>{this.posts}</h1>
-        <h1>{this.comments[this.id - 1]}</h1>
-        {this.id}
+        <h2>{this.id}</h2>
+        <h4>{this.comments}</h4>
       </div>
     );
   }   
