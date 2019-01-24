@@ -6,15 +6,6 @@ ReferenceArrayInput, SelectArrayInput,
  } from 'react-admin';
 
 
-/*
-<ReferenceInput label="Post" source="postId" reference="posts">
-    <AutocompleteInput optionText="id"/>
-</ReferenceInput>
-	<ReferenceInput label="Aux" source="postId" reference="comments">
-    		<AutocompleteInput optionText="id" />
-	</ReferenceInput>
-
-*/
   class Post extends React.Component{
    constructor(props) { 
     super(props);
@@ -88,15 +79,12 @@ ReferenceArrayInput, SelectArrayInput,
         }
       }
       console.log(aux)
-    
-    
     return (
-     <div>
-      <h1>{aux[0].postId}</h1>
-      <h1>{aux[0].id}</h1>
-      <h1>{aux[0].body}</h1>
-     </div>
+    <div>
+	Hi
+    </div>
     );
+
   }
   
   const posts = [
@@ -112,6 +100,11 @@ ReferenceArrayInput, SelectArrayInput,
 
 export const Aux = props => (
 <SimpleForm>
-  <PruebaSelect posts={posts} comments={comments} selected={1}/>
+<ReferenceInput label="Post" source="postId" reference="posts">
+    <AutocompleteInput optionText="id"/>
+</ReferenceInput>
+  <PruebaSelect posts="posts" comments="comments" selected={1}/>
+<TextField>
+
 </SimpleForm>
 );
