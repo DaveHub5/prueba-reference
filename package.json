@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "date-fns": "^2.0.0-alpha.27",
     "prop-types": "^15.6.2",
     "ra-data-json-server": "^2.6.2",
     "react": "^16.7.0",
     "react-admin": "^2.6.2",
+    "react-admin-date-inputs": "^1.1.2",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
   },
