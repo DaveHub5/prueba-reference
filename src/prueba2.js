@@ -1,10 +1,9 @@
 import React, {Fragment} from 'react';
 import { SimpleForm, ReferenceInput, 
 AutocompleteInput, FormDataConsumer,
-Edit, SelectInput, REDUX_FORM_NAME,
+REDUX_FORM_NAME,
  } from 'react-admin'
 import {change} from 'redux-form';
-
 
 
 
@@ -14,19 +13,17 @@ export const Prueba2 = props => (
             <FormDataConsumer>
                 {({ formData, dispatch, ...rest }) => (
                     <Fragment>
-			<ReferenceInput label="Posts" source="postId" reference="posts"
-			           onChange={value => dispatch(
-                                change(REDUX_FORM_NAME, 'id', null)
-                            )}
-                             {...rest}
-			>
+			<ReferenceInput label="Posts" source="id" reference="posts" perPage={10} 
+     sort={{ field: 'id', order: 'ASC' }}
+			           onChange={value => dispatch(change(REDUX_FORM_NAME, 'postId', null))}{...rest}>
   			  <AutocompleteInput optionText="title" />
 			</ReferenceInput>
 
 
-	<ReferenceInput label="Comments" source="id" reference="comments" filter={{ postId: formData.postId }}>
-    		<AutocompleteInput optionText="body"/>
-	</ReferenceInput>
+			<ReferenceInput label="Comments" source="postId" reference="comments" filter={{ postId: formData.id }}      sort={{ field: 'id', order: 'ASC' }}
+>
+    				<AutocompleteInput optionText="id"/>
+			</ReferenceInput>
 
 
 

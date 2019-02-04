@@ -11,7 +11,7 @@ export const Prueba = props => (
 
 <SimpleForm>
 <ReferenceInput label="Posts" source="postId" reference="posts">
-    <AutocompleteInput optionText="title"/>
+    <AutocompleteInput optionText="title" />
 </ReferenceInput>
 
 <FormDataConsumer>
@@ -24,6 +24,6 @@ export const Prueba = props => (
 
 </SimpleForm>
 
-	)
+)
 
 
