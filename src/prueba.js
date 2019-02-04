@@ -1,8 +1,6 @@
 import React from 'react';
-import { List, SimpleForm, ReferenceInput, SelectInput,
-Datagrid, TextField, ReferenceField, EditButton,
-AutocompleteInput, required, FormDataConsumer,
-ReferenceArrayInput, SelectArrayInput, Show,
+import { SimpleForm, ReferenceInput,
+AutocompleteInput, FormDataConsumer,
  } from 'react-admin';
 
 
