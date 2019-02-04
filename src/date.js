@@ -1,8 +1,5 @@
 import React from 'react';
-import { List, SimpleForm, ReferenceInput, SelectInput,
-Datagrid, TextField, ReferenceField, EditButton,
-AutocompleteInput, required, FormDataConsumer,
-ReferenceArrayInput, SelectArrayInput, Show, DateField,
+import { SimpleForm, DateField,
  } from 'react-admin';
 
 import { DateInput, TimeInput, DateTimeInput } from 'react-admin-date-inputs';
