@@ -11,7 +11,7 @@ export const Prueba2 = props => (
 
         <SimpleForm>
             <FormDataConsumer>
-                {({ formData, dispatch, ...rest }) => (
+                {({ formData, dispatch, getSource, ...rest }) => (
                     <Fragment>
 			<ReferenceInput label="Posts" source="id" reference="posts" perPage={10} 
      sort={{ field: 'id', order: 'ASC' }}
