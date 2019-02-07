@@ -20,7 +20,7 @@ export const Prueba2 = props => (
 			</ReferenceInput>
 
 
-			<ReferenceInput label="Comments" source="postId" reference="comments" filter={{ postId: formData.id }}      sort={{ field: 'id', order: 'ASC' }}
+			<ReferenceInput label="comments" source="postId" reference="comments" filter={{ postId: formData.id }}      sort={{ field: 'id', order: 'ASC' }}
 >
     				<AutocompleteInput optionText="id"/>
 			</ReferenceInput>
