@@ -1,16 +1,13 @@
 import React from 'react';
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { Prueba } from './prueba';
-import { Date } from './date';
+
 
 
 const dataProvider = jsonServerProvider('http://localhost:3001');
 const App = () => <Admin dataProvider={dataProvider}>
-        <Resource name="posts" list={ListGuesser} />
-        <Resource name="comments" list={ListGuesser} /> 
         <Resource name="prueba" list={Prueba} />
-        <Resource name="date" list={Date} />
-	</Admin>
+      	</Admin>
 
 export default App;

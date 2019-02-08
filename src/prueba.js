@@ -1,71 +1,70 @@
 import React from 'react';
-import { TimeInput } from 'react-admin-date-inputs';
-import { SimpleForm, TextInput} from 'react-admin';
+import { SimpleForm} from 'react-admin';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 class Clock extends React.Component { 
   constructor(props) {
     super(props);
-    this.state = {date: new Date(), outro: "PriM"};
-    this.cambio = this.cambio.bind(this);
-    this.cambioTexto = this.cambioTexto.bind(this);
+    this.state = {actualDate: new Date(), sec: Math.floor(Date.now() / 1000)};
     this.handleChange = this.handleChange.bind(this);
   }
   
-/*
-  componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tock(),
-      1000
-    );
-  }
-*/
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }  
 
-  tick() {
+  handleChange(date) {
     this.setState({
-      date: new Date()
+      startDate: date
+    });
+    this.setState({
+      sec: Math.floor(date / 1000)
     });
   }
-  tock(){
-    this.setState({
-      date: this.state.date
-    });
-  }
-  handleDateChange = date => {
-    this.setState({ date: date });
-  };
-
-  cambio(event) {
-    this.setState({
-      date: new Date(event.date)
-    });
-    this.setState({
-      outro: event.date
-    });
-  }
-
-   cambioTexto(event) {
-    this.setState({
-      outro: event.target.value
-    });
-  } 
-   handleChange(event) {
-    this.setState({
-      outro: event.target
-    });
-  } 
   render() {
     return (
       <div>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-        <h2>It is {this.state.outro}.</h2>
+        <h2>Time in milliseconds {this.state.sec}.</h2>
 	 <SimpleForm>
-        <TimeInput source="timesource" label="Start time" options={{ format: 'HH:mm:ss' }} onChange={this.handleDateChange}/>
-        <TextInput source="title" onChange={this.cambioTexto}/>
+
+
+		<DatePicker
+			selected={this.state.actualDate}
+			onChange={this.handleChange}
+			readOnly={true}
+			placeholderText="This is readOnly" 
+		/>
+
+
+		<DatePicker
+			selected={this.state.actualDate}
+			onChange={this.handleChange}
+			showTimeSelect
+			timeFormat="HH:mm"
+			dateFormat="MMMM d, yyyy h:mm aa"
+			readOnly={true}
+
+		/>
+
+      		<DatePicker
+        		selected={this.state.actualDate}
+        		onChange={this.handleChange}
+      		/>
+
+		<DatePicker
+			selected={this.state.actualDate}
+			onChange={this.handleChange}
+			showTimeSelect
+			timeFormat="HH:mm"
+			timeIntervals={1}
+			dateFormat="MMMM d, yyyy h:mm aa"
+			timeCaption="time"
+		/>
+
+
 	 </SimpleForm>
       </div>
+
+
     );
   }
 }
@@ -74,9 +73,9 @@ class Clock extends React.Component {
 
 
 export const Prueba = props => (
-<div>
-<Clock/>
-</div>
+
+	<Clock/>
+
 )
 
 
