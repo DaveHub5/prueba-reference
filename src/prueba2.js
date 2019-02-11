@@ -42,6 +42,8 @@ const dateTimeParser = v => {
   if (isNaN(d)) return;
   return d;
 }
+
+
 class Clock extends React.Component { 
   constructor(props) {
     super(props);
@@ -80,7 +82,6 @@ class Clock extends React.Component {
 
 
     this.setState({
-      //actualDate: date.target.value
 	actualDate: newDate
     });
 
