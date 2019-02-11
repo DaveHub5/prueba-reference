@@ -77,7 +77,7 @@ class Clock extends React.Component {
 
 
 	//Format
-	//Reformatting is needed to avoid 2019-02-09_150:00.  (Bad minutes formatting)
+	//Reformatting is needed to avoid 2019-02-09_150:00.  (Bad hours formatting)
     const newDate = dateTimeFormatter(d);
 
 
