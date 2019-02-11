@@ -47,7 +47,7 @@ const dateTimeParser = v => {
 class Clock extends React.Component { 
   constructor(props) {
     super(props);
-    this.state = {actualDate: "No Time", sec: 0};
+    this.state = {actualDate: "No Date", sec: 0, otherDate: "No Time"};
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleDateTimeChange = this.handleDateTimeChange.bind(this);
   }
@@ -57,7 +57,6 @@ class Clock extends React.Component {
     this.setState({
       actualDate: date[0] +date[1] +date[2] +date[3]+date[4] +date[5] +date[6] +date[7]+date[8] +date[9]
     });
-
     const yy = date[0] + date[1] +date[2] +date[3]
     const mm = date[5] +date[6]
     const dd = date[8] +date[9]
@@ -70,24 +69,16 @@ class Clock extends React.Component {
   handleDateTimeChange(date) {
 
 	//Parse
-    const match = /(\d{4})-(\d{2})-(\d{2})_(\d{2}):(\d{2})/.exec(date.target.value);
-    if (match === null) return;
-    const d = new Date(match[1], parseInt(match[2], 10) - 1, match[3], match[4],match[5]);
-    if (isNaN(d)) return;
-
+    const dt = dateTimeParser(date.target.value);
 
 	//Format
 	//Reformatting is needed to avoid 2019-02-09_150:00.  (Bad hours formatting)
-    const newDate = dateTimeFormatter(d);
-
+    const newTimeDate = dateTimeFormatter(dt);
 
     this.setState({
-	actualDate: newDate
+	otherDate: newTimeDate
     });
-
-
-
-    const aux = Math.floor(d / 1000)
+    const aux = Math.floor(dt / 1000)
     this.setState({
       sec: aux
     });
@@ -97,13 +88,16 @@ class Clock extends React.Component {
     return (
       <div>
         <h2>Time in milliseconds: {this.state.sec}.</h2>
-        <h2>Time: {this.state.actualDate}.</h2>
+        <h2>Time without hours: {this.state.actualDate}.</h2>
+        <h2>Time with    hours: {this.state.otherDate}.</h2>
 		<SimpleForm>
-			<DateInput  format={dateFormatter} parse={dateParser}
+			<DateInput source="date" format={dateFormatter} parse={dateParser}
  onChange={this.handleDateChange}
 		/>
-			<DateTimeInput format={dateTimeFormatter} parse={dateTimeParser}
- onChange={this.handleDateTimeChange}
+		</SimpleForm>
+		<SimpleForm>
+			<DateTimeInput source="dateTime" format={dateTimeFormatter} parse={dateTimeParser}
+ onChange={this.handleDateTimeChange} label="Introduce as YYYY-MM-DD_hh:mm"
 		/>
 		</SimpleForm>
       </div>
