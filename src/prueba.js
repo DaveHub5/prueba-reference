@@ -14,7 +14,7 @@ class Clock extends React.Component {
 
   handleChange(date) {
     this.setState({
-      startDate: date
+      actualDate: date
     });
     this.setState({
       sec: Math.floor(date / 1000)
