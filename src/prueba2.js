@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import { SimpleForm, ReferenceInput, 
 AutocompleteInput, FormDataConsumer,
-REDUX_FORM_NAME, crudGetMatching
+REDUX_FORM_NAME
  } from 'react-admin'
 import {change} from 'redux-form';
 
