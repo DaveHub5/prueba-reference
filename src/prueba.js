@@ -1,5 +1,4 @@
 import React from 'react';
-import { TextField } from 'react-admin'
 
  
 class FlavorForm extends React.Component {

@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import { SimpleForm, ReferenceInput, 
 AutocompleteInput, FormDataConsumer,
-REDUX_FORM_NAME,
+REDUX_FORM_NAME, crudGetMatching
  } from 'react-admin'
 import {change} from 'redux-form';
 
@@ -22,7 +22,7 @@ export const Prueba2 = props => (
 
 			<ReferenceInput label="comments" source="postId" reference="comments" filter={{ postId: formData.id }}      sort={{ field: 'id', order: 'ASC' }}
 >
-    				<AutocompleteInput optionText="id"/>
+    			  <AutocompleteInput optionText="id"/>
 			</ReferenceInput>
 
 
