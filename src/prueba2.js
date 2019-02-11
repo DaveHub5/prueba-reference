@@ -89,12 +89,13 @@ class Clock extends React.Component {
       <div>
         <h2>Time in milliseconds: {this.state.sec}.</h2>
         <h2>Time without hours: {this.state.actualDate}.</h2>
-        <h2>Time with    hours: {this.state.otherDate}.</h2>
+
 		<SimpleForm>
 			<DateInput source="date" format={dateFormatter} parse={dateParser}
  onChange={this.handleDateChange}
 		/>
 		</SimpleForm>
+        <h2>Time with    hours: {this.state.otherDate}.</h2>
 		<SimpleForm>
 			<DateTimeInput source="dateTime" format={dateTimeFormatter} parse={dateTimeParser}
  onChange={this.handleDateTimeChange} label="Introduce as YYYY-MM-DD_hh:mm"
