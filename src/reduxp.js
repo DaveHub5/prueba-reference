@@ -1,14 +1,12 @@
 import React from 'react'
-import { List, Datagrid, TextField } from 'react-admin';
+import { SimpleForm, TextField, TextInput } from 'react-admin';
 
 
 const UserList = props => (
-    <List {...props}>
-        <Datagrid rowClick="edit">
+        <SimpleForm>
+            <TextInput source="id" />
             <TextField source="id" />
-            <TextField source="title" />
-        </Datagrid>
-    </List>
+        </SimpleForm>
 );
 
 export const Reduxp = props => (
