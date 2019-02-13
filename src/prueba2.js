@@ -1,29 +1,50 @@
 import React, {Fragment} from 'react';
 import { SimpleForm, ReferenceInput, 
 AutocompleteInput, FormDataConsumer,
-REDUX_FORM_NAME
+REDUX_FORM_NAME,
  } from 'react-admin'
 import {change} from 'redux-form';
 
 
 
-export const Prueba2 = props => (
 
+class Prueba3 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: 0};
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+
+    this.setState(
+	{value: event}
+	);
+	console.log(this.state.value);
+  }
+
+
+  render() {     
+    return (
         <SimpleForm>
             <FormDataConsumer>
                 {({ formData, dispatch, getSource, ...rest }) => (
                     <Fragment>
 			<ReferenceInput label="Posts" source="id" reference="posts" perPage={10} 
      sort={{ field: 'id', order: 'ASC' }}
-			           onChange={value => dispatch(change(REDUX_FORM_NAME, 'postId', null))}{...rest}>
+			           onChange={value => {dispatch(change(REDUX_FORM_NAME, 'postId', null))
+						this.handleChange(formData.id)	
+							}
+						}{...rest}>
   			  <AutocompleteInput optionText="title" />
 			</ReferenceInput>
 
 
-			<ReferenceInput label="comments" source="postId" reference="comments" filter={{ postId: formData.id }}      sort={{ field: 'id', order: 'ASC' }}
+			<ReferenceInput label="comments" source="postId" reference="comments" filter={{ postId: this.state.value }}      sort={{ field: 'id', order: 'ASC' }}  
 >
     			  <AutocompleteInput optionText="id"/>
 			</ReferenceInput>
+
 
 
 
@@ -32,6 +53,20 @@ export const Prueba2 = props => (
 
             </FormDataConsumer>
         </SimpleForm>
+    );
+  }
+}
 
 
+
+export const Prueba2 = props => (
+<div>
+	<Prueba3/>
+</div>
 )
+
+
+
+
+
+
