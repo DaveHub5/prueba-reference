@@ -47,7 +47,7 @@ class Prueba3 extends React.Component {
 
 			<ReferenceInput label="comments" source="postId" reference="comments" filter={{ postId: this.state.value }}      sort={{ field: 'id', order: 'ASC' }}
 >
-    			  <AutocompleteInput optionText="id"/>
+    			  <AutocompleteInput optionText="body"/>
 			</ReferenceInput>
                     </Fragment>
                 )}
