@@ -8,7 +8,7 @@ import {change} from 'redux-form';
 
 
 
-class Prueba3 extends React.Component {
+class PostCommentsClass extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: 0};
@@ -60,9 +60,9 @@ class Prueba3 extends React.Component {
 
 
 
-export const Prueba2 = props => (
+export const PostsComentarios = props => (
 <div>
-	<Prueba3/>
+	<PostCommentsClass/>
 </div>
 )
 
