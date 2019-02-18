@@ -1,14 +1,11 @@
 import React from 'react';
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
-import { Reduxp } from './reduxp';
-
+import { PostList } from './posts';
 
 const dataProvider = jsonServerProvider('http://localhost:3001');
 const App = () => <Admin dataProvider={dataProvider}>
-        <Resource name="posts" list={ListGuesser} />
-        <Resource name="comments" list={ListGuesser} /> 
-        <Resource name="reduxp" list={Reduxp} />
+        <Resource name="posts" list={PostList} />
 	</Admin>
 
 export default App;
