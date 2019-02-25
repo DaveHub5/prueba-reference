@@ -12,12 +12,10 @@ import {
     DisabledInput,
     SimpleForm,
     TextInput,
-    NumberInput,
     Filter,
-    DateInput,
 } from 'react-admin';
 
-import Date from './date';
+import MilisDate from './date';
 
 const PostFilter = props => (
     <Filter {...props}>
@@ -44,7 +42,7 @@ export const PostCreate = props => (
         <SimpleForm>
             <TextInput source="title" />
             <TextInput source="aux" />
-		{<Date source="prov"/>}
+		{<MilisDate source="prov"/>}
         </SimpleForm>
     </Create>
 );

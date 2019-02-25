@@ -15,7 +15,6 @@ import {
     DisabledInput,
     SimpleForm,
     TextInput,
-    NumberInput,
 } from 'react-admin';
 
 

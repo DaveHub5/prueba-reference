@@ -1,15 +1,14 @@
 import React from 'react';
-import { SimpleForm, DateInput, DateTimeInput} from 'react-admin';
+import {DateInput} from 'react-admin';
 
 
-
-
-class Date extends React.Component { 
+class MilisDate extends React.Component { 
   constructor(props) {
     super(props);
     this.state = {actualDate: "No Date", sec: 0};
     this.handleDateChange = this.handleDateChange.bind(this);
   }
+
   dateFormatter = v => {
   // v is a `Date` object
   if (!(v instanceof Date) || isNaN(v)) return;
@@ -45,16 +44,15 @@ class Date extends React.Component {
   render() {
     return (
       <div>
-        <h2>Time in milliseconds: {this.state.sec}.</h2>
-		<DateInput source="date" format={this.dateFormatter} parse={this.dateParser}
+		<DateInput source={this.props.source} format={this.dateFormatter} parse={this.dateParser}
  onChange={this.handleDateChange}
 		/>
+        <h2>Time in milliseconds: {this.state.sec}.</h2>
 	</div>
 
     );
   }
 }
 
-
-export default (Date);
+export default (MilisDate);
 
