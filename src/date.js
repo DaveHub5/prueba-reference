@@ -1,7 +1,16 @@
 import React from 'react';
 import { SimpleForm, DateInput, DateTimeInput} from 'react-admin';
 
-const dateFormatter = v => {
+
+
+
+class Date extends React.Component { 
+  constructor(props) {
+    super(props);
+    this.state = {actualDate: "No Date", sec: 0};
+    this.handleDateChange = this.handleDateChange.bind(this);
+  }
+  dateFormatter = v => {
   // v is a `Date` object
   if (!(v instanceof Date) || isNaN(v)) return;
   const pad = '00';
@@ -11,7 +20,7 @@ const dateFormatter = v => {
   return `${yy}-${(pad + mm).slice(-2)}-${(pad + dd).slice(-2)}`;
 }
 
-const dateParser = v => {
+  dateParser = v => {
   // v is a string of "YYYY-MM-DD" format
   const match = /(\d{4})-(\d{2})-(\d{2})/.exec(v);
   if (match === null) return;
@@ -19,15 +28,6 @@ const dateParser = v => {
   if (isNaN(d)) return;
   return d;
 }
-
-
-class Date extends React.Component { 
-  constructor(props) {
-    super(props);
-    this.state = {actualDate: "No Date", sec: 0, otherDate: "No Time"};
-    this.handleDateChange = this.handleDateChange.bind(this);
-  }
-  
 
   handleDateChange(date) {
     this.setState({
@@ -46,7 +46,7 @@ class Date extends React.Component {
     return (
       <div>
         <h2>Time in milliseconds: {this.state.sec}.</h2>
-		<DateInput source="date" format={dateFormatter} parse={dateParser}
+		<DateInput source="date" format={this.dateFormatter} parse={this.dateParser}
  onChange={this.handleDateChange}
 		/>
 	</div>
@@ -54,8 +54,7 @@ class Date extends React.Component {
     );
   }
 }
-/*
-<DateInput source="date" format={dateFormatter} parse={dateParser}
-*/
+
+
 export default (Date);
 

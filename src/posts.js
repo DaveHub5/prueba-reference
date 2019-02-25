@@ -14,6 +14,7 @@ import {
     TextInput,
     NumberInput,
     Filter,
+    DateInput,
 } from 'react-admin';
 
 import Date from './date';
