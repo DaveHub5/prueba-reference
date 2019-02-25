@@ -51,7 +51,6 @@ export const UserCreate = props => (
             <ReferenceInput label="PostId" source="postId" reference="posts">
                 <SelectInput optionText="title" />
             </ReferenceInput>
-            <NumberInput source="id" />
             <TextInput source="body" />
         </SimpleForm>
     </Create>
