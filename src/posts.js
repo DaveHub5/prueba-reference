@@ -24,7 +24,7 @@ const PostFilter = props => (
 );
 
 export const PostList = (props) => (
-    <List {...props} filters={<PostFilter />}>
+    <List {...props} filters={<PostFilter />} aside={<Aside />}>
         <Datagrid>
             <TextField source="id" />
             <TextField source="title" />
@@ -35,7 +35,9 @@ export const PostList = (props) => (
     </List>
 );
 
-
+const Aside = () => (
+    <h1>Some Content</h1>
+);
 export const PostCreate = props => (
     <Create {...props}>
         <SimpleForm>
