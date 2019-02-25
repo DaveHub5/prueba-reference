@@ -1,11 +1,14 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
-import { PostList } from './posts';
+import { PostList, PostCreate, PostEdit, PostShow } from './posts';
+import { UserList, UserCreate, UserEdit,  UserShow } from './users';
 
 const dataProvider = jsonServerProvider('http://localhost:3001');
+
 const App = () => <Admin dataProvider={dataProvider}>
-        <Resource name="posts" list={PostList} />
+        <Resource name="posts" create={PostCreate} list={PostList} edit={PostEdit} show={PostShow}/>
+        <Resource name="comments" create={UserCreate} list={UserList} edit={UserEdit} show={UserShow}/>
 	</Admin>
 
 export default App;

@@ -1,59 +1,74 @@
 import React from 'react';
-import { List, Datagrid, TextField } from 'react-admin';
-//import Button from '@material-ui/core/Button';
-import { CardActions, CreateButton, ExportButton, RefreshButton } from 'react-admin';
+import {
+    Show,
+    ShowButton,
+    SimpleShowLayout,
+    List,
+    Edit,
+    Create,
+    Datagrid,
+    TextField,
+    EditButton,
+    DisabledInput,
+    SimpleForm,
+    TextInput,
+    NumberInput,
+    Filter,
+} from 'react-admin';
 
-const PostActions = ({
-    bulkActions,
-    basePath,
-    currentSort,
-    displayedFilters,
-    exporter,
-    filters,
-    filterValues,
-    onUnselectItems,
-    resource,
-    selectedIds,
-    showFilter,
-    total
-}) => (
-    <CardActions>
-        {bulkActions && React.cloneElement(bulkActions, {
-            basePath,
-            filterValues,
-            resource,
-            selectedIds,
-            onUnselectItems,
-        })}
-        {filters && React.cloneElement(filters, {
-            resource,
-            showFilter,
-            displayedFilters,
-            filterValues,
-            context: 'button',
-        }) }
-        <CreateButton basePath={basePath} />
-        <ExportButton
-            disabled={total === 0}
-            resource={resource}
-            sort={currentSort}
-            filter={filterValues}
-            exporter={exporter}
-        />
-        <RefreshButton />
-        {/* Add your custom actions */}
-       {/* <Button primary onClick={customAction}>Custom Action</Button>*/}
-    </CardActions>
+const PostFilter = props => (
+    <Filter {...props}>
+        <TextInput label="Search" source="q" alwaysOn />
+        <TextInput source="id" /> 
+  </Filter>
 );
 
-
-
 export const PostList = (props) => (
-    <List {...props} title="List of posts" actions={<PostActions />} >
+    <List {...props} filters={<PostFilter />}>
         <Datagrid>
             <TextField source="id" />
             <TextField source="title" />
             <TextField source="aux" />
+            <EditButton />
+            <ShowButton />
         </Datagrid>
     </List>
+);
+
+
+export const PostCreate = props => (
+    <Create {...props}>
+        <SimpleForm>
+            <NumberInput source="id" />
+            <TextInput source="title" />
+            <TextInput source="aux" />
+        </SimpleForm>
+    </Create>
+);
+
+
+const PostTitle = ({ record }) => {
+    return <span>Post {record ? `"${record.title}"` : ''}</span>;
+};
+
+export const PostEdit = props => (
+    <Edit title={<PostTitle />} {...props}>
+        <SimpleForm>
+            <DisabledInput source="id" />
+            <TextInput source="title" />
+            <TextInput source="aux" />
+        </SimpleForm>
+    </Edit>
+);
+
+
+
+export const PostShow = props => (
+    <Show {...props}>
+        <SimpleShowLayout>
+            <TextField source="id" />
+            <TextField source="title" />
+            <TextField source="aux" />
+        </SimpleShowLayout>
+    </Show>
 );
