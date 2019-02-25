@@ -16,6 +16,8 @@ import {
     Filter,
 } from 'react-admin';
 
+import Date from './date';
+
 const PostFilter = props => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn />
@@ -41,6 +43,7 @@ export const PostCreate = props => (
         <SimpleForm>
             <TextInput source="title" />
             <TextInput source="aux" />
+		{<Date source="prov"/>}
         </SimpleForm>
     </Create>
 );
