@@ -18,7 +18,7 @@ import {
 } from 'react-admin';
 
 
-export const UserList = (props) => (
+export const CommentList = (props) => (
     <List {...props}>
         <Datagrid>
             <ReferenceField label="PostId" source="postId" reference="posts">
@@ -33,7 +33,7 @@ export const UserList = (props) => (
 );
 
 
-export const UserShow = props => (
+export const CommentShow = props => (
     <Show {...props}>
         <SimpleShowLayout>
             <TextField source="postId" />
@@ -44,7 +44,7 @@ export const UserShow = props => (
 );
 
 
-export const UserCreate = props => (
+export const CommentCreate = props => (
     <Create {...props}>
         <SimpleForm>
             <ReferenceInput label="PostId" source="postId" reference="posts">
@@ -56,12 +56,12 @@ export const UserCreate = props => (
 );
 
 
-const UserTitle = ({ record }) => {
+const CommentTitle = ({ record }) => {
     return <span>Post {record ? `"${record.id}"` : ''}</span>;
 };
 
-export const UserEdit = props => (
-    <Edit title={<UserTitle />} {...props}>
+export const CommentEdit = props => (
+    <Edit title={<CommentTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
              <ReferenceInput label="PostId" source="postId" reference="posts">
