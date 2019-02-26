@@ -3,10 +3,6 @@ import {DateInput} from 'react-admin';
 
 
 class MilisDate extends React.Component { 
-  constructor(props) {
-    super(props);
-    this.state = {actualDate: "No Date", sec: 0};
-  }
 
   //record to input
   dateFormatter = v => {
