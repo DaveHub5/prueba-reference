@@ -9,23 +9,17 @@ import {
     Datagrid,
     TextField,
     EditButton,
-    ReferenceField,
-    ReferenceInput,
-    SelectInput,
     DisabledInput,
     SimpleForm,
-    TextInput,
 } from 'react-admin';
 
+import MilisDate from './date';
 
 export const CommentList = (props) => (
     <List {...props}>
         <Datagrid>
-            <ReferenceField label="PostId" source="postId" reference="posts">
-                <TextField source="id" />
-            </ReferenceField>
             <TextField source="id" />
-            <TextField source="body" />
+            <TextField source="date" />
             <EditButton />
             <ShowButton />
         </Datagrid>
@@ -36,9 +30,8 @@ export const CommentList = (props) => (
 export const CommentShow = props => (
     <Show {...props}>
         <SimpleShowLayout>
-            <TextField source="postId" />
             <TextField source="id" />
-            <TextField source="body" />
+            <TextField source="date" />
         </SimpleShowLayout>
     </Show>
 );
@@ -47,10 +40,7 @@ export const CommentShow = props => (
 export const CommentCreate = props => (
     <Create {...props}>
         <SimpleForm>
-            <ReferenceInput label="PostId" source="postId" reference="posts">
-                <SelectInput optionText="title" />
-            </ReferenceInput>
-            <TextInput source="body" />
+		{<MilisDate source="date"/>}
         </SimpleForm>
     </Create>
 );
@@ -64,11 +54,6 @@ export const CommentEdit = props => (
     <Edit title={<CommentTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
-             <ReferenceInput label="PostId" source="postId" reference="posts">
-                <SelectInput optionText="title" />
-            </ReferenceInput>
-            <TextInput source="body" />
-
         </SimpleForm>
     </Edit>
 );

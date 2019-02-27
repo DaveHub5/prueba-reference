@@ -2,7 +2,7 @@ import React from 'react';
 import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { PostList, PostCreate, PostEdit, PostShow } from './posts';
-import { CommentList, CommentCreate, CommentEdit,  CommentShow } from './users';
+import { CommentList, CommentCreate, CommentEdit,  CommentShow } from './comments';
 
 const dataProvider = jsonServerProvider('http://localhost:3001');
 

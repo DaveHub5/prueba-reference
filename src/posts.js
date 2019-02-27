@@ -28,8 +28,7 @@ export const PostList = (props) => (
     <List {...props} filters={<PostFilter />}>
         <Datagrid>
             <TextField source="id" />
-            <TextField source="title" />
-            <TextField source="aux" />
+            <TextField source="date" />
             <EditButton />
             <ShowButton />
         </Datagrid>
@@ -40,9 +39,7 @@ export const PostList = (props) => (
 export const PostCreate = props => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source="title" />
-            <TextInput source="aux" />
-		{<MilisDate source="prov"/>}
+		{<MilisDate source="date"/>}
         </SimpleForm>
     </Create>
 );
@@ -56,8 +53,7 @@ export const PostEdit = props => (
     <Edit title={<PostTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
-            <TextInput source="title" />
-            <TextInput source="aux" />
+            <TextInput source="date" />
         </SimpleForm>
     </Edit>
 );
@@ -68,8 +64,7 @@ export const PostShow = props => (
     <Show {...props}>
         <SimpleShowLayout>
             <TextField source="id" />
-            <TextField source="title" />
-            <TextField source="aux" />
+            <TextField source="date" />
         </SimpleShowLayout>
     </Show>
 );
